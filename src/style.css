@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --principal-color: rgb(55 54 54);
+  --second-color: rgb(255, 255, 255);
+  --third-color: rgb(90, 0, 255);
+  --error-color: rgb(255, 77, 77);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--principal-color);
+  font-size: 1.6rem;
+}
+
+.app-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+}
+
+form {
+  color: var(--second-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+form button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+form > label {
+  position: relative;
+}
+
+form > label > span {
+  position: absolute;
+  top: 28px;
+  right: 8px;
+}
+
+form input {
+  appearance: none;
+  color: var(--second-color);
+  background-color: var(--principal-color);
+  border: none;
+  border-bottom: 2px solid var(--third-color);
+  outline: none;
+  margin-left: 15px;
+  font-family: inherit;
+  font-size: 1.6rem;
+}
+
+form input:focus:invalid {
+  border-bottom: 2px solid var(--error-color);
+}
+
+.city-input-error {
+  color: var(--error-color);
+}
+
+.city-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  color: var(--second-color);
+  font-size: 2rem;
+  align-items: center;
+}
+
+.city {
+  width: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.city-name {
+  display: flex;
+  gap: 10px;
+  grid-column: 1/3;
+  justify-content: center;
+  border-bottom: 2px solid var(--third-color);
+}
+
+.city-temp {
+  grid-row: 2/4;
+  font-size: 5rem;
+  font-weight: 900;
+}

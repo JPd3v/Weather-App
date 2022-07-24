@@ -4,7 +4,7 @@ function importantCityData(city) {
   const obj = {
     name: city.name,
     country: city.sys.country,
-    temp: city.main.temp,
+    temp: Math.round(city.main.temp),
     humidity: city.main.humidity,
     weather_description: city.weather[0].description,
   };
@@ -21,14 +21,12 @@ async function fetchApi(city) {
     );
 
     const cityResponse = await response.json();
-    console.log(importantCityData(cityResponse));
-    console.log(cityResponse);
     pubSub.publish('city found', importantCityData(cityResponse));
   } catch (error) {
-    console.log(error);
+    pubSub.publish('city not found');
   }
 }
 
-fetchApi('estados unidos');
+fetchApi('london');
 
 pubSub.subscribe('search city', fetchApi);
